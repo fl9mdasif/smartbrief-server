@@ -7,9 +7,9 @@ const app: Application = express();
 
 // parser middleware
 app.use(cors({
-  // origin: 'http://localhost:5173',  
   origin: 'https://master.d3mia3lbsm9fsq.amplifyapp.com',  
   credentials: true,               
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'],
 }));
 
 app.use(express.json());
