@@ -18,11 +18,12 @@ const express_1 = __importDefault(require("express"));
 const router_1 = __importDefault(require("./app/router"));
 const app = (0, express_1.default)();
 // parser middleware
-app.use(express_1.default.json());
 app.use((0, cors_1.default)({
-    origin: 'http://localhost:5173',
+    // origin: 'http://localhost:5173',  
+    origin: 'https://master.d3mia3lbsm9fsq.amplifyapp.com',
     credentials: true,
 }));
+app.use(express_1.default.json());
 // application routes
 app.use('/api/v1', router_1.default);
 // Root route
@@ -34,6 +35,4 @@ const test = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     res.send(a);
 });
 app.get('/a', test);
-// global err handler middleware. must declare it in the last off the file
-// app.use(globalErrorHandler);
 exports.default = app;

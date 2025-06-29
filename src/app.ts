@@ -6,11 +6,13 @@ import router from './app/router';
 const app: Application = express();
 
 // parser middleware
-app.use(express.json());
 app.use(cors({
-  origin: 'http://localhost:5173',  
+  // origin: 'http://localhost:5173',  
+  origin: 'https://master.d3mia3lbsm9fsq.amplifyapp.com',  
   credentials: true,               
 }));
+
+app.use(express.json());
 
 // application routes
 app.use('/api/v1', router);
